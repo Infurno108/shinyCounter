@@ -9,7 +9,9 @@ function loadData() {
       document.getElementById("count").innerHTML = "Count: " + count;
       let math = Math.pow(1364 / 1365, count) * 100;
       document.getElementById("math").innerHTML =
-        math + "% of people have not gotten the shiny by this count";
+        math + "% of people are still hunting";
+      document.getElementById("math2").innerHTML =
+        100 - math + "% of people got the shiny";
     });
 }
 
@@ -17,8 +19,10 @@ function sr() {
   count = count + 1;
   let math = Math.pow(1364 / 1365, count) * 100;
   document.getElementById("math").innerHTML =
-    math + "% of people have not gotten the shiny by this count";
+    math + "% of people are still hunting";
   document.getElementById("count").innerHTML = "Count: " + count;
+  document.getElementById("math2").innerHTML =
+    100 - math + "% of people got the shiny";
 }
 
 window.onload = loadData;

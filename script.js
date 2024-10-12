@@ -61,6 +61,8 @@ function hoard() {
 }
 function inc() {
   count = count + 1;
+  document.getElementById("hunt").innerHTML = "Currently hunting: " + hunt;
+  document.getElementById("count").innerHTML = "Count: " + count;
   switch (method) {
     case 0:
       math = (Math.pow(1364 / 1365, count) * 100).toFixed(2);

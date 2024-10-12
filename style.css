@@ -1,18 +1,50 @@
+@import url('https://fonts.cdnfonts.com/css/falzon');
+
 body {
     background-color: #333;
     color: #ccc;
-    margin: 10;
-    font-family: Arial, sans-serif;
+    font-family: 'Falzon', sans-serif;
+    align-items: center;
+}
+
+h1 {
+    text-align: center;
+    color: #cec05a;
+    font-size: 4em;
+    margin: 0;
+}
+
+#box {
+    text-align: center;
+    background-color: #444;
+    margin: 30px;
+    padding: 10px;
+    font-size: 2em;
+}
+
+#secondBox {
+    border-radius: 50%;
+    behavior: url(PIE.htc);
+    align-content: center;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #444;
+    width: 200px;
+    height: 200px;
 }
 
 button {
-    background-color: #a90f0f;
-    color: #ffffff;
+    background-color: #cec05a;
+    color: #333;
     padding: 5px 10px;
     cursor: pointer;
 }
 
 img {
+    margin: 10px;
+    margin-left: 25px;
     width: 150px;
     height: auto;
 }

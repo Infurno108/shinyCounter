@@ -1,5 +1,6 @@
 var count;
 var method = 0; //0 SR, 1 MM, 2 Hoard
+
 function loadData() {
   fetch("config.json")
     .then((response) => response.json())

@@ -1,4 +1,6 @@
 @import url('https://fonts.cdnfonts.com/css/falzon');
+@import url('https://fonts.cdnfonts.com/css/public-pixel');
+         
 
 :root {
     --main-color: #cec05a;
@@ -25,15 +27,17 @@ h1 {
     text-align: center;
     color: var(--main-color);
     font-size: 4em;
-    margin: 0;
 }
 
 #box {
     text-align: center;
     background-color: var(--box-color);
-    margin: 30px;
+    margin-left: 30px;
+    margin-right: 30px;
     padding: 10px;
-    font-size: 2em;
+    font-size: 1em;
+    height: 190px;
+    font-family: 'Public Pixel', sans-serif;
 }
 
 #secondBox {
@@ -41,12 +45,12 @@ h1 {
     behavior: url(PIE.htc);
     align-content: center;
     position: absolute;
-    top: 65%;
+    top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: var(--box-color);
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
 }
 
 button {
@@ -59,6 +63,6 @@ button {
 img {
     margin: 10px;
     margin-left: 25px;
-    width: 150px;
+    width: 110px;
     height: auto;
 }

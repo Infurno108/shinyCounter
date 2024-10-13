@@ -43,6 +43,7 @@ function mm() {
     return;
   }
   method = 1;
+  document.getElementById("inc").innerText = "HATCH";
   loadData();
 }
 function sr() {
@@ -50,6 +51,7 @@ function sr() {
     return;
   }
   method = 0;
+  document.getElementById("inc").innerText = "SR";
   loadData();
 }
 function hoard() {
@@ -57,6 +59,7 @@ function hoard() {
     return;
   }
   method = 2;
+  document.getElementById("inc").innerText = "RUN";
   loadData();
 }
 function inc() {

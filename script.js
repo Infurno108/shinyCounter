@@ -15,25 +15,25 @@ function loadData() {
         case 0:
           math = (Math.pow(1364 / 1365, count) * 100).toFixed(2);
           inverse = (100 - math).toFixed(2);
-          document.getElementById("math2").innerHTML =
-            inverse + "% of people would have the shiny by this reset";
           document.getElementById("math").innerHTML =
+            inverse + "% of people would have the shiny by this reset";
+          document.getElementById("math2").innerHTML =
             math + "% of people would still be hunting";
           break;
         case 1:
           math = (Math.pow(511 / 512, count) * 100).toFixed(2);
           inverse = (100 - math).toFixed(2);
-          document.getElementById("math2").innerHTML =
-            inverse + "% of people would have the  shiny by this egg";
           document.getElementById("math").innerHTML =
+            inverse + "% of people would have the  shiny by this egg";
+          document.getElementById("math2").innerHTML =
             math + "% of people would still be hatching";
           break;
         case 2:
           math = (Math.pow(1364 / 1365, 5 * count) * 100).toFixed(2);
           inverse = (100 - math).toFixed(2);
-          document.getElementById("math2").innerHTML =
-            inverse + "% of people would have the shiny by this hoard";
           document.getElementById("math").innerHTML =
+            inverse + "% of people would have the shiny by this hoard";
+          document.getElementById("math2").innerHTML =
             math + "% of people would still be using Sweet Scent";
           break;
       }
@@ -70,25 +70,25 @@ function inc() {
     case 0:
       math = (Math.pow(1364 / 1365, count) * 100).toFixed(2);
       inverse = (100 - math).toFixed(2);
-      document.getElementById("math2").innerHTML =
-        inverse + "% of people would have the shiny by now";
       document.getElementById("math").innerHTML =
+        inverse + "% of people would have the shiny by now";
+      document.getElementById("math2").innerHTML =
         math + "% of people would still be hunting";
       break;
     case 1:
       math = (Math.pow(511 / 512, count) * 100).toFixed(2);
       inverse = (100 - math).toFixed(2);
-      document.getElementById("math2").innerHTML =
-        inverse + "% of people would have the shiny by this egg";
       document.getElementById("math").innerHTML =
+        inverse + "% of people would have the shiny by this egg";
+      document.getElementById("math2").innerHTML =
         math + "% of people would still be hatching";
       break;
     case 2:
       math = (Math.pow(1364 / 1365, 5 * count) * 100).toFixed(2);
       inverse = (100 - math).toFixed(2);
-      document.getElementById("math2").innerHTML =
-        inverse + "% of people would have the shiny by this hoard";
       document.getElementById("math").innerHTML =
+        inverse + "% of people would have the shiny by this hoard";
+      document.getElementById("math2").innerHTML =
         math + "% of people are would still be using Sweet Scent";
       break;
   }

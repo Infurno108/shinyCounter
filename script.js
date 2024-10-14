@@ -1,6 +1,35 @@
 var count;
 var method = 0; //0 SR, 1 MM, 2 Hoard
 
+function loadSite() {
+  fetch("config.json")
+    .then((response) => response.json())
+    .then((data) => {
+      const hunts = data.hunts;
+      var hunt, method, count;
+      var referenceNode = document.getElementsByClassName("hunts")[0];
+      for (var i = 0; i < hunts.length; i++) {
+        hunt = hunts[i].hunt;
+        count = hunts[i].count;
+        method = hunts[i].method;
+        var div = document.createElement("div");
+        div.id = "huntBox";
+        var sprite = document.createElement("img");
+        sprite.src =
+          "https://raw.githubusercontent.com/msikma/pokesprite/master/pokemon-gen7x/shiny/" +
+          hunt.toLowerCase() +
+          ".png";
+        sprite.id = "sprite";
+        var text = document.createElement("p");
+        text.innerHTML = `${hunt} ${method} ${count}`;
+        div.appendChild(sprite);
+        div.appendChild(text);
+        referenceNode.appendChild(div);
+      }
+    });
+}
+window.onload = loadSite;
+
 function loadData() {
   fetch("config.json")
     .then((response) => response.json())
@@ -93,4 +122,3 @@ function inc() {
       break;
   }
 }
-window.onload = loadData;

@@ -7,6 +7,7 @@
     --background-color: #222222;
     --box-color: #181818;
     --font-color: #ccc;
+    
 }
 
 .headerBackground {
@@ -39,6 +40,8 @@
 body {
     background-color: var(--background-color);
     font-family: 'Falzon', sans-serif;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 .hunts {
@@ -50,7 +53,7 @@ body {
     padding: 20px;
 }
 
-#huntBox {
+.huntBox {
     background-color: var(--box-color);
     height: 125px;
     color: var(--font-color);

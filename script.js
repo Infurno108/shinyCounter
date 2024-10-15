@@ -1,34 +1,78 @@
-var count;
-var method = 0; //0 SR, 1 MM, 2 Hoard
+//0 SR, 1 MM, 2 Hoard
+
+function test() {
+  console.log("test");
+}
 
 function loadSite() {
   fetch("config.json")
     .then((response) => response.json())
     .then((data) => {
+
       const hunts = data.hunts;
       var hunt, method, count;
       var referenceNode = document.getElementsByClassName("hunts")[0];
       for (var i = 0; i < hunts.length; i++) {
-        hunt = hunts[i].hunt;
-        count = hunts[i].count;
-        method = hunts[i].method;
         var div = document.createElement("div");
-        div.id = "huntBox";
+        div.className = "huntBox";
+        div.id = hunt;
+        div.count = count;
+
+        div.id = hunts[i].hunt;
+        div.count = hunts[i].count;
+        div.method = hunts[i].method;
+        
         var sprite = document.createElement("img");
         sprite.src =
           "https://raw.githubusercontent.com/msikma/pokesprite/master/pokemon-gen7x/shiny/" +
-          hunt.toLowerCase() +
+          div.id.toLowerCase() +
           ".png";
         sprite.id = "sprite";
+
         var text = document.createElement("p");
-        text.innerHTML = `${hunt} ${method} ${count}`;
+        text.innerHTML = `${div.id} ${div.count}`;
+        text.id = hunt + "Text";
+
+        var button = document.createElement("button");
+        
+        
+        button.className = "reset";
+        button.id = div.id + "Button";
+        button.innerHTML = "+";
         div.appendChild(sprite);
         div.appendChild(text);
+        div.appendChild(button);
+
         referenceNode.appendChild(div);
       }
+      //console.log(document.getElementsByClassName("reset"));
+    })
+    .then(() => {
+      buttonEstablishment();
     });
 }
-window.onload = loadSite;
+
+loadSite();
+
+//window.onload = buttonEstablishment();
+
+function buttonEstablishment() {
+  console.log(document.getElementsByClassName("reset"));
+  var buttons = document.getElementsByClassName("reset");
+  for (var i = 0; i < buttons.length; i++) {
+    console.log(buttons[i]);
+    //buttons[i].setAttribute("onclick", "test()");
+    buttons[i].addEventListener("click", test);
+    console.log(buttons[i]);
+  }
+}
+
+function increment(i, hunt) {
+  ++count[i];
+  document.getElementById(
+    hunt + "Text"
+  ).innerHTML = `${hunt} ${methods[i]} ${count[i]}`;
+}
 
 function loadData() {
   fetch("config.json")

@@ -1,55 +1,68 @@
 //0 SR, 1 MM, 2 Hoard
 
+var config = {
+    "hunts": [
+        {
+            "hunt": "Reshiram",
+            "count": 750,
+            "method": "Soft Reset"
+        },
+        {
+            "hunt": "Latias",
+            "count": 182,
+            "method": "Soft Reset"
+        },
+        {
+            "hunt": "Ho-Oh",
+            "count": 340,
+            "method": "Soft Reset"
+        }
+    ]
+}
+
 function test() {
   console.log("test");
 }
 
 function loadSite() {
-  fetch("config.json")
-    .then((response) => response.json())
-    .then((data) => {
 
-      const hunts = data.hunts;
-      var hunt, method, count;
-      var referenceNode = document.getElementsByClassName("hunts")[0];
-      for (var i = 0; i < hunts.length; i++) {
-        var div = document.createElement("div");
-        div.className = "huntBox";
-        div.id = hunt;
-        div.count = count;
+  const hunts = config.hunts;
+  var hunt, method, count;
+  var referenceNode = document.getElementsByClassName("hunts")[0];
+  for (var i = 0; i < hunts.length; i++) {
+    var div = document.createElement("div");
+    div.className = "huntBox";
+    div.id = hunt;
+    div.count = count;
 
-        div.id = hunts[i].hunt;
-        div.count = hunts[i].count;
-        div.method = hunts[i].method;
-        
-        var sprite = document.createElement("img");
-        sprite.src =
-          "https://raw.githubusercontent.com/msikma/pokesprite/master/pokemon-gen7x/shiny/" +
-          div.id.toLowerCase() +
-          ".png";
-        sprite.id = "sprite";
+    div.id = hunts[i].hunt;
+    div.count = hunts[i].count;
+    div.method = hunts[i].method;
+    
+    var sprite = document.createElement("img");
+    sprite.src =
+      "https://raw.githubusercontent.com/msikma/pokesprite/master/pokemon-gen7x/shiny/" +
+      div.id.toLowerCase() +
+      ".png";
+    sprite.id = "sprite";
 
-        var text = document.createElement("p");
-        text.innerHTML = `${div.id} ${div.count}`;
-        text.id = hunt + "Text";
+    var text = document.createElement("p");
+    text.innerHTML = `${div.id} ${div.count}`;
+    text.id = hunt + "Text";
 
-        var button = document.createElement("button");
-        
-        
-        button.className = "reset";
-        button.id = div.id + "Button";
-        button.innerHTML = "+";
-        div.appendChild(sprite);
-        div.appendChild(text);
-        div.appendChild(button);
+    var button = document.createElement("button");
+    
+    
+    button.className = "reset";
+    button.id = div.id + "Button";
+    button.innerHTML = "+";
+    div.appendChild(sprite);
+    div.appendChild(text);
+    div.appendChild(button);
 
-        referenceNode.appendChild(div);
-      }
-      //console.log(document.getElementsByClassName("reset"));
-    })
-    .then(() => {
-      buttonEstablishment();
-    });
+    referenceNode.appendChild(div);
+  }
+  buttonEstablishment();  
 }
 
 loadSite();

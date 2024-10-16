@@ -4,9 +4,9 @@ var config = {
   hunts: [
     {
       hunt: "Reshiram",
-      count: 1065,
+      count: 1180,
       method: "Soft Reset",
-      probability: 0.5418257527313901,
+      probability: 0.5788581956042984,
     },
     {
       hunt: "Latias",
@@ -50,7 +50,7 @@ function loadSite() {
     text.id = div.id + "Text";
 
     var span = document.createElement("span");
-    span.innerHTML = " " + ((div.probability)*100).toFixed(2) + "%";
+    span.innerHTML = " " + (div.probability * 100).toFixed(2) + "%";
     span.setAttribute("style", "color: #3fe03f;");
     text.appendChild(span);
 
@@ -86,17 +86,22 @@ function increment(hunt) {
   var span = text.getElementsByTagName("span")[0];
   switch (div.method) {
     case "Soft Reset":
-      div.probability = (div.probability + (1 / 1354) * Math.pow(1354 / 1355, div.count - 1));
+      div.probability =
+        div.probability + (1 / 1354) * Math.pow(1354 / 1355, div.count - 1);
       break;
     case "Masuda Method":
-      div.probability = (div.probability + (1 / 512) * Math.pow(511 / 512, div.count - 1));
+      div.probability =
+        div.probability + (1 / 512) * Math.pow(511 / 512, div.count - 1);
       break;
     case "Hoard":
-      div.probability = (div.probability + (1-Math.pow(1354/1355, 5)) * Math.pow(1354 / 1355, 5*(div.count - 1)));
+      div.probability =
+        div.probability +
+        (1 - Math.pow(1354 / 1355, 5)) *
+          Math.pow(1354 / 1355, 5 * (div.count - 1));
       break;
   }
-  span.innerHTML = " " + (div.probability*100).toFixed(2) + "%";
+  console.log(div.probability);
+  span.innerHTML = " " + (div.probability * 100).toFixed(2) + "%";
   text.innerHTML = `${div.id} ${div.count}`;
   text.appendChild(span);
-
 }

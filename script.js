@@ -3,6 +3,12 @@
 var config = {
   hunts: [
     {
+      hunt: "Zygarde",
+      count: 0,
+      method: "Soft Reset",
+      probability: 0,
+    },
+    {
       hunt: "Reshiram",
       count: 1180,
       method: "Soft Reset",

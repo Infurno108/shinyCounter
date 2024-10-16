@@ -5,19 +5,112 @@
 :root {
     --main-color: #cec05a;
     --background-color: #222222;
-    --box-color: #2c2c2c;
+    --box-color: #181818;
+    --font-color: #ccc;
+    --test-color : #3fe03f;
+    
+}
+
+.headerBackground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 75px;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 75px;
+    background-color: rgba(24, 24, 24, 0.5);
+    z-index: 1;
+}
+
+.name {
+    position: relative;
+    font-size: 2.5em;
+    text-align: center;
+    padding: 14px;
+    color: var(--main-color);
+    z-index: 2;
 }
 
 body {
     background-color: var(--background-color);
-    color: #ccc;
     font-family: 'Falzon', sans-serif;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.hunts {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    margin-top: 80px;
+    gap: 20px;
+    padding: 20px;
+}
+
+.huntBox {
+    background-color: var(--box-color);
+    height: 125px;
+    color: var(--font-color);
+    border-radius: 25px;
+    display: flex;
     align-items: center;
+    justify-content: left;
+    font-size: 1em;
+    font-family: 'Public Pixel', sans-serif;
+}
+
+.reset {
+    background-color: var(--main-color);
+    background-color: #181818;
+    color: var(--font-color);
+    border-radius: 12px;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: 15px;
+}
+
+.addHunt {
+    border-radius: 50%;
+    behavior: url(PIE.htc);
+    margin-left:50%;
+    background-color: var(--box-color);
+    color: var(--font-color);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+}
+
+#splash {
+    position: absolute;
+    left: 38%;
+    top: 25%;
+    width: 1000px;
+    height: auto;
+    opacity: .1;
+    pointer-events: none;
+}
+
+#sprite {
+    height: 100px;
+    width: auto;
+    opacity: 75%;
+    margin-top: -40px;
 }
 
 footer {
     position: fixed;
     bottom: 0;
+    left: 0;
     width: 100%;;
     background-color: var(--box-color);
     padding: 10px;
@@ -37,21 +130,9 @@ h1 {
     padding: 10px;
     font-size: 1em;
     height: 190px;
-    font-family: 'Public Pixel', sans-serif;
+    
 }
 
-#secondBox {
-    border-radius: 50%;
-    behavior: url(PIE.htc);
-    align-content: center;
-    position: absolute;
-    top: 70%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: var(--box-color);
-    width: 150px;
-    height: 150px;
-}
 
 button {
     background-color: var(--main-color);
@@ -60,9 +141,3 @@ button {
     cursor: pointer;
 }
 
-img {
-    margin: 10px;
-    margin-left: 25px;
-    width: 110px;
-    height: auto;
-}

@@ -1,4 +1,19 @@
 {
-    "hunt": "Reshiram",
-    "count": 1065
+    "hunts": [
+        {
+            "hunt": "Reshiram",
+            "count": 750,
+            "method": "Soft Reset"
+        },
+        {
+            "hunt": "Latias",
+            "count": 182,
+            "method": "Soft Reset"
+        },
+        {
+            "hunt": "Ho-Oh",
+            "count": 340,
+            "method": "Soft Reset"
+        }
+    ]
 }

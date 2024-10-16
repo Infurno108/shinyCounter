@@ -86,6 +86,7 @@ body {
     width: 1000px;
     height: auto;
     opacity: .1;
+    pointer-events: none;
 }
 
 #sprite {

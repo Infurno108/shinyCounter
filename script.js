@@ -7,18 +7,21 @@ var config = {
       count: 1180,
       method: "Soft Reset",
       probability: 0.5788581956042984,
+      have: 0,
     },
     {
       hunt: "Latias",
       count: 182,
       method: "Soft Reset",
       probability: 0.12486944430732436,
+      have: 1,
     },
     {
       hunt: "Ho-Oh",
       count: 340,
       method: "Soft Reset",
       probability: 0.22055685686824258,
+      have: 1,
     },
   ],
 };
@@ -39,10 +42,18 @@ function loadSite() {
     div.probability = hunts[i].probability;
 
     var sprite = document.createElement("img");
-    sprite.src =
+    if (hunts[i].have == 1) {
+      sprite.src =
       "https://raw.githubusercontent.com/msikma/pokesprite/master/pokemon-gen7x/shiny/" +
       div.id.toLowerCase() +
       ".png";
+    } else
+    {
+      sprite.src =
+      "https://raw.githubusercontent.com/msikma/pokesprite/master/pokemon-gen7x/regular/" +
+      div.id.toLowerCase() +
+      ".png";
+    }
     sprite.id = "sprite";
 
     var text = document.createElement("p");

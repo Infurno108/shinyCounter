@@ -4,9 +4,9 @@ var config = {
   hunts: [
     {
       hunt: "Reshiram",
-      count: 1180,
+      count: 1500,
       method: "Soft Reset",
-      probability: 0.5788581956042984,
+      probability: 0.6669743999365353,
       have: 0,
     },
     {
@@ -44,15 +44,14 @@ function loadSite() {
     var sprite = document.createElement("img");
     if (hunts[i].have == 1) {
       sprite.src =
-      "https://raw.githubusercontent.com/msikma/pokesprite/master/pokemon-gen7x/shiny/" +
-      div.id.toLowerCase() +
-      ".png";
-    } else
-    {
+        "https://raw.githubusercontent.com/msikma/pokesprite/master/pokemon-gen7x/shiny/" +
+        div.id.toLowerCase() +
+        ".png";
+    } else {
       sprite.src =
-      "https://raw.githubusercontent.com/msikma/pokesprite/master/pokemon-gen7x/regular/" +
-      div.id.toLowerCase() +
-      ".png";
+        "https://raw.githubusercontent.com/msikma/pokesprite/master/pokemon-gen7x/regular/" +
+        div.id.toLowerCase() +
+        ".png";
     }
     sprite.id = "sprite";
 
@@ -98,7 +97,7 @@ function increment(hunt) {
   switch (div.method) {
     case "Soft Reset":
       div.probability =
-        div.probability + (1 / 1354) * Math.pow(1354 / 1355, div.count - 1);
+        div.probability + (1 / 1355) * Math.pow(1354 / 1355, div.count - 1);
       break;
     case "Masuda Method":
       div.probability =

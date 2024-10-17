@@ -4,10 +4,10 @@ var config = {
   hunts: [
     {
       hunt: "Reshiram",
-      count: 1500,
+      count: 1705,
       method: "Soft Reset",
-      probability: 0.6669743999365353,
-      have: 0,
+      probability: 0.6882,
+      have: 1,
     },
     {
       hunt: "Latias",
@@ -97,7 +97,7 @@ function increment(hunt) {
   switch (div.method) {
     case "Soft Reset":
       div.probability =
-        div.probability + (1 / 1355) * Math.pow(1354 / 1355, div.count - 1);
+        div.probability + (1 / 1354) * Math.pow(1354 / 1355, div.count - 1);
       break;
     case "Masuda Method":
       div.probability =

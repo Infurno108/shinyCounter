@@ -3,6 +3,13 @@
 var config = {
   hunts: [
     {
+      hunt: "Sableye",
+      count: 0,
+      probability: 0,
+      method: "Masuda Method",
+      have: 0,
+    },
+    {
       hunt: "Reshiram",
       count: 1705,
       method: "Soft Reset",
@@ -33,8 +40,6 @@ function loadSite() {
   for (var i = 0; i < hunts.length; i++) {
     var div = document.createElement("div");
     div.className = "huntBox";
-    div.id = hunt;
-    div.count = count;
 
     div.id = hunts[i].hunt;
     div.count = hunts[i].count;

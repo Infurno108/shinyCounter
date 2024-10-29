@@ -3,6 +3,13 @@
 var config = {
   hunts: [
     {
+      hunt: "Regirock",
+      count: 217,
+      probability: 0.14814168243731043,
+      method: "Soft Reset",
+      have: 0,
+    },
+    {
       hunt: "Sandshrew",
       count: 195,
       probability: 0.513161506069178,

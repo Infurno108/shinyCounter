@@ -3,9 +3,16 @@
 var config = {
   hunts: [
     {
+      hunt: "Sandshrew",
+      count: 120,
+      probability: 0.35787218411765803,
+      method: "Hoard",
+      have: 0,
+    },
+    {
       hunt: "Sableye",
-      count: 0,
-      probability: 0,
+      count: 72,
+      probability: 0.13130440469880675,
       method: "Masuda Method",
       have: 0,
     },
@@ -45,6 +52,7 @@ function loadSite() {
     div.count = hunts[i].count;
     div.method = hunts[i].method;
     div.probability = hunts[i].probability;
+    div.have = hunts[i].have;
 
     var sprite = document.createElement("img");
     if (hunts[i].have == 1) {
@@ -66,7 +74,11 @@ function loadSite() {
 
     var span = document.createElement("span");
     span.innerHTML = " " + (div.probability * 100).toFixed(2) + "%";
-    span.setAttribute("style", "color: #3fe03f;");
+    if (div.have == 0) {
+      span.setAttribute("style", "color: #dc1d16;");
+    } else {
+      span.setAttribute("style", "color: #3fe03f;");
+    }
     text.appendChild(span);
 
     var button = document.createElement("button");

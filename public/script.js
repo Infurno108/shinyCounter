@@ -4,10 +4,10 @@ var config = {
   hunts: [
     {
       hunt: "Sandshrew",
-      count: 120,
-      probability: 0.35787218411765803,
+      count: 195,
+      probability: 0.513161506069178,
       method: "Hoard",
-      have: 0,
+      have: 1,
     },
     {
       hunt: "Sableye",

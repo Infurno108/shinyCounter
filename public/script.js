@@ -4,8 +4,8 @@ var config = {
   hunts: [
     {
       hunt: "Mawile",
-      count: 0,
-      probability: 0,
+      count: 40,
+      probability: 0.13727213038573594,
       method: "Hoard",
       have: 0,
     },

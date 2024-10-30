@@ -10,6 +10,13 @@ var config = {
       have: 0,
     },
     {
+      hunt: "Aron",
+      count: 36,
+      probability: 0.1244389266918316,
+      method: "Hoard",
+      have: 1,
+    },
+    {
       hunt: "Shuppet",
       count: 19,
       probability: 0.06773352236078622,

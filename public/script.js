@@ -3,9 +3,16 @@
 var config = {
   hunts: [
     {
+      hunt: "Shuppet",
+      count: 19,
+      probability: 0.06773352236078622,
+      method: "Hoard",
+      have: 1,
+    },
+    {
       hunt: "Regirock",
-      count: 217,
-      probability: 0.14814168243731043,
+      count: 328,
+      probability: 0.21522495288770943,
       method: "Soft Reset",
       have: 0,
     },

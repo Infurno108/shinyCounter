@@ -1,5 +1,5 @@
 //0 SR, 1 MM, 2 Hoard
-
+/*
 var config = {
   hunts: [
     {
@@ -67,10 +67,12 @@ var config = {
     },
   ],
 };
-
-function loadSite() {
-  const hunts = config.hunts;
-  var hunt, method, count;
+*/
+async function loadSite() {
+  await parseHunts(huntFetch()).then((data) => {
+    config = data;
+  });
+  var hunts = config.hunts;
   var referenceNode = document.getElementsByClassName("hunts")[0];
   for (var i = 0; i < hunts.length; i++) {
     var div = document.createElement("div");
@@ -121,6 +123,36 @@ function loadSite() {
     referenceNode.appendChild(div);
   }
   buttonEstablishment();
+  //console.log(huntFetch().then((data) => console.log(data)));
+}
+
+async function parseHunts(hunts) {
+  //hunts being a json object returned from api/fetchHunts
+  var dingus;
+  await hunts.then((data) => {
+    dingus = data.rows;
+  });
+  var temp = [];
+  for (var i = 0; i < dingus.length; i++) {
+    temp.push(dingus[i].hunts.replace("(", "").replace(")", "").split(",")); //splitting the strings into an array
+  }
+  var config = { hunts: [] };
+  for (var i = 0; i < temp.length; i++) {
+    config.hunts.push({
+      hunt: temp[i][0],
+      method: temp[i][1],
+      count: temp[i][2],
+      probability: temp[i][3],
+      have: temp[i][4],
+    });
+  }
+  return config;
+}
+
+async function huntFetch() {
+  return await fetch("/api/fetchHunts").then(function (res) {
+    return res.json();
+  });
 }
 
 function buttonEstablishment() {

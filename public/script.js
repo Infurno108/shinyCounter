@@ -1,6 +1,5 @@
 const url = "/api/";
 
-
 async function loadSite() {
   await parseHunts(huntFetch()).then((data) => {
     config = data;
@@ -45,12 +44,18 @@ async function loadSite() {
     text.appendChild(span);
 
     var button = document.createElement("button");
-    button.className = "reset";
+    button.className = "inc";
     button.id = div.id + "Button";
     button.innerHTML = "+";
 
+    var updateButton = document.createElement("button");
+    updateButton.className = "reset";
+    updateButton.id = div.id + "Reset";
+    updateButton.innerHTML = "↻";
+
     div.appendChild(sprite);
     div.appendChild(text);
+    div.appendChild(updateButton);
     div.appendChild(button);
 
     referenceNode.appendChild(div);
@@ -102,15 +107,38 @@ async function addHunt() {
 }
 
 function buttonEstablishment() {
-  var buttons = document.getElementsByClassName("reset");
+  var buttons = document.getElementsByClassName("inc");
   for (var i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener("click", function () {
       increment(this.id.slice(0, -6));
     });
   }
+  buttons = document.getElementsByClassName("reset");
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener("click", function () {
+      updateHunt(this.id.slice(0, -5));
+    });
+  }
 }
 
 loadSite();
+
+function updateHunt(hunt) {
+  var div = document.getElementById(hunt);
+  var count = div.count;
+  var probability = div.probability;
+  var have = div.have;
+  fetch(
+    "/api/editHunt?hunt=" +
+      hunt +
+      "&count=" +
+      count +
+      "&probability=" +
+      probability +
+      "&have=" +
+      have
+  );
+}
 
 function increment(hunt) {
   var div = document.getElementById(hunt);

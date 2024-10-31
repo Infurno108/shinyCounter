@@ -66,7 +66,7 @@ body {
     font-family: 'Public Pixel', sans-serif;
 }
 
-.reset {
+.inc {
     background-color: var(--main-color);
     background-color: #181818;
     color: var(--font-color);
@@ -74,6 +74,15 @@ body {
     cursor: pointer;
     margin-left: auto;
     margin-right: 15px;
+}
+
+.reset {
+    background-color: var(--main-color);
+    background-color: #181818;
+    color: var(--font-color);
+    border-radius: 12px;
+    cursor: pointer;
+    margin-left: auto;
 }
 
 #splash {

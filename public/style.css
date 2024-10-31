@@ -106,7 +106,7 @@ body {
     position: absolute;
     left: 0%;
     top: 10%;
-    width: 1000px;
+    width: 100%;
     height: auto;
     opacity: .1;
     pointer-events: none;

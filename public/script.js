@@ -53,8 +53,14 @@ async function loadSite() {
     updateButton.id = div.id + "Reset";
     updateButton.innerHTML = "↻";
 
+    var catchButton = document.createElement("button");
+    catchButton.className = "catch";
+    catchButton.id = div.id + "Catch";
+    catchButton.innerHTML = "◓";
+
     div.appendChild(sprite);
     div.appendChild(text);
+    div.appendChild(catchButton);
     div.appendChild(updateButton);
     div.appendChild(button);
 
@@ -62,6 +68,27 @@ async function loadSite() {
   }
   buttonEstablishment();
   //console.log(huntFetch().then((data) => console.log(data)));
+}
+
+function buttonEstablishment() {
+  var buttons = document.getElementsByClassName("inc");
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener("click", function () {
+      increment(this.id.slice(0, -6));
+    });
+  }
+  buttons = document.getElementsByClassName("reset");
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener("click", function () {
+      updateHunt(this.id.slice(0, -5));
+    });
+  }
+  buttons = document.getElementsByClassName("catch");
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener("click", function () {
+      catchHunt(this.id.slice(0, -5));
+    });
+  }
 }
 
 async function parseHunts(hunts) {
@@ -106,23 +133,6 @@ async function addHunt() {
   window.location.reload();
 }
 
-function buttonEstablishment() {
-  var buttons = document.getElementsByClassName("inc");
-  for (var i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener("click", function () {
-      increment(this.id.slice(0, -6));
-    });
-  }
-  buttons = document.getElementsByClassName("reset");
-  for (var i = 0; i < buttons.length; i++) {
-    buttons[i].addEventListener("click", function () {
-      updateHunt(this.id.slice(0, -5));
-    });
-  }
-}
-
-loadSite();
-
 function updateHunt(hunt) {
   var div = document.getElementById(hunt);
   var count = div.count;
@@ -137,31 +147,47 @@ function updateHunt(hunt) {
       probability +
       "&have=" +
       have
-  );
+  ).then((res) => {
+    window.location.reload();
+  });
+}
+
+function catchHunt(hunt) {
+  var div = document.getElementById(hunt);
+  if (div.have == 0) {
+    div.have = 1;
+  } else {
+    div.have = 0;
+  }
+  updateHunt(hunt);
 }
 
 function increment(hunt) {
   var div = document.getElementById(hunt);
-  ++div.count;
-  var text = document.getElementById(hunt + "Text");
-  var span = text.getElementsByTagName("span")[0];
-  var prob = parseFloat(div.probability);
-  switch (div.method) {
-    case "Soft_Reset":
-      prob = prob + (1 / 1354) * Math.pow(1354 / 1355, div.count - 1);
-      break;
-    case "Masuda_Method":
-      prob = prob + (1 / 512) * Math.pow(511 / 512, div.count - 1);
-      break;
-    case "Hoard":
-      prob =
-        prob +
-        (1 - Math.pow(1354 / 1355, 5)) *
-          Math.pow(1354 / 1355, 5 * (div.count - 1));
-      break;
+  if (div.have == 0) {
+    ++div.count;
+    var text = document.getElementById(hunt + "Text");
+    var span = text.getElementsByTagName("span")[0];
+    var prob = parseFloat(div.probability);
+    switch (div.method) {
+      case "Soft_Reset":
+        prob = prob + (1 / 1354) * Math.pow(1354 / 1355, div.count - 1);
+        break;
+      case "Masuda_Method":
+        prob = prob + (1 / 512) * Math.pow(511 / 512, div.count - 1);
+        break;
+      case "Hoard":
+        prob =
+          prob +
+          (1 - Math.pow(1354 / 1355, 5)) *
+            Math.pow(1354 / 1355, 5 * (div.count - 1));
+        break;
+    }
+    div.probability = prob;
+    span.innerHTML = " " + (prob * 100).toFixed(2) + "%";
+    text.innerHTML = `${div.id} ${div.count}`;
+    text.appendChild(span);
   }
-  div.probability = prob;
-  span.innerHTML = " " + (prob * 100).toFixed(2) + "%";
-  text.innerHTML = `${div.id} ${div.count}`;
-  text.appendChild(span);
 }
+
+loadSite();

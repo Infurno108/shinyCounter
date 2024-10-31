@@ -1,8 +1,10 @@
+export const dynamic = "force-dynamic";
+const url = "https://shiny-counter.vercel.app/api/";
+
 async function loadSite() {
   await parseHunts(huntFetch()).then((data) => {
     config = data;
   });
-
   var hunts = config.hunts;
   var referenceNode = document.getElementsByClassName("hunts")[0];
   for (var i = 0; i < hunts.length; i++) {
@@ -81,7 +83,7 @@ async function parseHunts(hunts) {
 }
 
 async function huntFetch() {
-  return await fetch("/api/fetchHunts").then(function (res) {
+  return await fetch(url + "fetchHunts").then(function (res) {
     return res.json();
   });
 }
@@ -93,7 +95,8 @@ async function addHunt() {
   var hunt = document.getElementById("newHunt").value;
   var method = document.getElementById("method").value;
   await fetch(
-    `/api/addHunt?hunt=${hunt}&method=${method}&count=${count}&probability=${probability}&have=${have}`
+    url +
+      "addHunt?hunt=${hunt}&method=${method}&count=${count}&probability=${probability}&have=${have}"
   );
   window.location.reload();
 }

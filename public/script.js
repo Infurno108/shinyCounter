@@ -1,5 +1,6 @@
 const url = "/api/";
 
+
 async function loadSite() {
   await parseHunts(huntFetch()).then((data) => {
     config = data;
@@ -88,14 +89,14 @@ async function huntFetch() {
 }
 
 async function addHunt() {
-  var count = document.getElementById("count").value;
-  var probability = document.getElementById("probability").value;
-  var have = document.getElementById("have").value;
   var hunt = document.getElementById("newHunt").value;
   var method = document.getElementById("method").value;
   await fetch(
-    url +
-      "addHunt?hunt=${hunt}&method=${method}&count=${count}&probability=${probability}&have=${have}"
+    "/api/addHunt?hunt=" +
+      hunt +
+      "&method=" +
+      method +
+      "&count=0&probability=0&have=0"
   );
   window.location.reload();
 }

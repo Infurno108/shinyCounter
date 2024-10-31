@@ -7,6 +7,7 @@
     <link href="https://fonts.cdnfonts.com/css/public-pixel" rel="stylesheet">
     <link href="https://fonts.cdnfonts.com/css/public-pixel" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="https://cdn.rawgit.com/ricmoo/aes-js/e27b99df/index.js"></script>
 
 </head>
 <body>
@@ -15,21 +16,18 @@
         <div class="name">Shiny Counter</div>
     </div>
     <div class="hunts"></div>
-    <div class="addHunt">
-        <input class="add" type="text" id="newHunt" placeholder="Pokemon">
+    <img id=splash src="pics/tumblr_n1zbesVXP31rsc51fo1_500.gif">
+    <script src="script.js"></script>
+    <br>
+    <br>
+</body>
+<footer>
+    <input class="add" type="text" id="newHunt" placeholder="Pokemon">
         <select name="Method" id="method">
             <option value="Soft_Reset">Soft Reset</option>
             <option value="Hoard">Hoard</option>
             <option value="Masuda_Method">Masuda Method</option>
         </select>
-        <input class="add" type="number" id="count" placeholder="count">
-        <input class="add" type="double" id="probability" placeholder="prob">
-        <input class="add" type="number" id="have" placeholder="have">
-        <button id="addHunter" onclick="addHunt()">✚</button>
-    </div>
-    <img id=splash src="pics/tumblr_n1zbesVXP31rsc51fo1_500.gif">
-    <script src="script.js"></script>
-</body>
-<footer>
+    <button id="addHunter" onclick="addHunt()">✚</button>
 </footer>
 </html>

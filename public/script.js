@@ -1,11 +1,19 @@
 const url = "/api/";
 
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
 async function loadSite() {
   await parseHunts(huntFetch()).then((data) => {
     config = data;
   });
   var hunts = config.hunts;
   var referenceNode = document.getElementsByClassName("hunts")[0];
+  var splash = document.createElement("img");
+  splash.src = "pics/!have/" + getRandomInt(3) + ".png";
+  splash.id = "splash";
+  referenceNode.appendChild(splash);
   for (var i = 0; i < hunts.length; i++) {
     var div = document.createElement("div");
     div.className = "huntBox";

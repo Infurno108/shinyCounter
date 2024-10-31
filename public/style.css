@@ -128,6 +128,40 @@ footer {
     padding: 10px;
 }
 
+#method {
+    width: 200px;
+    display: inline-block;
+    background-color: var(--background-color);
+    position: relative;
+    font-size: 14px;
+    color: var(--main-color);
+    text-align: center;
+    font-size: 2em;
+    font-family: 'Falzon', sans-serif;
+    cursor: pointer;
+}
+
+#newHunt {
+    width: 200px;
+    font-size: 2em;
+    background-color: var(--background-color);
+    color: var(--main-color);
+    cursor: pointer;
+    font-family: 'Falzon', sans-serif;
+}
+
+#addHunter {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.5em;
+    width: 2em;
+    background-color: var(--background-color);
+    color: var(--main-color);
+    cursor: pointer;
+    font-family: 'Falzon', sans-serif;
+}
+
 h1 {
     text-align: center;
     color: var(--main-color);

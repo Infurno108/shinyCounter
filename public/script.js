@@ -1,8 +1,9 @@
+export const dynamic = "force-dynamic";
+
 async function loadSite() {
   await parseHunts(huntFetch()).then((data) => {
     config = data;
   });
-
   var hunts = config.hunts;
   var referenceNode = document.getElementsByClassName("hunts")[0];
   for (var i = 0; i < hunts.length; i++) {

@@ -1,4 +1,4 @@
-const url = "https://shiny-counter.vercel.app/api/";
+const url = "/api/";
 
 async function loadSite() {
   await parseHunts(huntFetch()).then((data) => {
@@ -132,7 +132,6 @@ function increment(hunt) {
       break;
   }
   div.probability = prob;
-  console.log(prob);
   span.innerHTML = " " + (prob * 100).toFixed(2) + "%";
   text.innerHTML = `${div.id} ${div.count}`;
   text.appendChild(span);

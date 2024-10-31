@@ -1,4 +1,3 @@
-export const dynamic = "force-dynamic";
 const url = "https://shiny-counter.vercel.app/api/";
 
 async function loadSite() {

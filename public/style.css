@@ -151,9 +151,8 @@ footer {
 }
 
 #addHunter {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+    position: relative;
+    transform: translateY(-6%);
     font-size: 1.5em;
     width: 2em;
     background-color: var(--background-color);

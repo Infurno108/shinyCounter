@@ -16,7 +16,13 @@
     </div>
     <div class="hunts"></div>
     <div class="addHunt">
-        ✚
+        <input class="add" type="text" id="newHunt" placeholder="Pokemon">
+        <select name="Method" id="method">
+            <option value="Soft Reset">Soft Reset</option>
+            <option value="Hoard">Hoard</option>
+            <option value="Masuda Method">Masuda Method</option>
+        </select>
+        <button id="addHunter" onclick="addHunt()">✚</button>
     </div>
     <img id=splash src="pics/tumblr_n1zbesVXP31rsc51fo1_500.gif">
     <script src="script.js"></script>

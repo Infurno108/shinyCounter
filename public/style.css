@@ -121,44 +121,50 @@ body {
 
 footer {
     position: fixed;
+    text-align: center;
     bottom: 0;
     left: 0;
     width: 100%;;
-    background-color: var(--box-color);
+    background-color: rgba(24, 24, 24, 0.5);
     padding: 10px;
 }
 
 #method {
+    border-radius: 25px;
     width: 200px;
     display: inline-block;
-    background-color: var(--background-color);
+    background-color: var(--box-color);
     position: relative;
-    font-size: 14px;
+    font-size: 1em;
     color: var(--main-color);
     text-align: center;
-    font-size: 2em;
+    font-size: 1.5em;
     font-family: 'Falzon', sans-serif;
     cursor: pointer;
 }
 
 #newHunt {
+    border-radius: 25px;
+    text-align: center;
     width: 200px;
-    font-size: 2em;
-    background-color: var(--background-color);
+    font-size: 1.5em;
+    background-color: var(--box-color);
     color: var(--main-color);
-    cursor: pointer;
     font-family: 'Falzon', sans-serif;
 }
 
 #addHunter {
     position: relative;
     transform: translateY(-6%);
-    font-size: 1.5em;
+    font-size: 1.2em;
     width: 2em;
-    background-color: var(--background-color);
-    color: var(--main-color);
+    height: 2em;
     cursor: pointer;
     font-family: 'Falzon', sans-serif;
+    background-color: #181818;
+    color: var(--font-color);
+    border-radius: 12px;
+    cursor: pointer;
 }
 
 h1 {

@@ -11,7 +11,7 @@ async function loadSite() {
   var hunts = config.hunts;
   var referenceNode = document.getElementsByClassName("hunts")[0];
   var splash = document.createElement("img");
-  splash.src = "pics/!have/" + getRandomInt(3) + ".png";
+  splash.src = "pics/!have/" + getRandomInt(4) + ".png";
   splash.id = "splash";
   referenceNode.appendChild(splash);
   for (var i = 0; i < hunts.length; i++) {
@@ -170,6 +170,20 @@ function catchHunt(hunt) {
   updateHunt(hunt);
 }
 
+function calculateProb(method, probability, count) {
+  switch (method) {
+    case "Soft_Reset":
+      return probability + (1 / 1354) * Math.pow(1354 / 1355, count - 1);
+    case "Masuda_Method":
+      return probability + (1 / 512) * Math.pow(511 / 512, count - 1);
+    case "Hoard":
+      return (
+        probability +
+        (1 - Math.pow(1354 / 1355, 5)) * Math.pow(1354 / 1355, 5 * (count - 1))
+      );
+  }
+}
+
 function increment(hunt) {
   var div = document.getElementById(hunt);
   if (div.have == 0) {
@@ -177,20 +191,7 @@ function increment(hunt) {
     var text = document.getElementById(hunt + "Text");
     var span = text.getElementsByTagName("span")[0];
     var prob = parseFloat(div.probability);
-    switch (div.method) {
-      case "Soft_Reset":
-        prob = prob + (1 / 1354) * Math.pow(1354 / 1355, div.count - 1);
-        break;
-      case "Masuda_Method":
-        prob = prob + (1 / 512) * Math.pow(511 / 512, div.count - 1);
-        break;
-      case "Hoard":
-        prob =
-          prob +
-          (1 - Math.pow(1354 / 1355, 5)) *
-            Math.pow(1354 / 1355, 5 * (div.count - 1));
-        break;
-    }
+    prob = calculateProb(div.method, prob, div.count);
     div.probability = prob;
     span.innerHTML = " " + (prob * 100).toFixed(2) + "%";
     text.innerHTML = `${div.id} ${div.count}`;

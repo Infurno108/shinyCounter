@@ -181,6 +181,16 @@ function calculateProb(method, probability, count) {
         probability +
         (1 - Math.pow(1354 / 1355, 5)) * Math.pow(1354 / 1355, 5 * (count - 1))
       );
+    case "SOS":
+      if (count < 10) {
+        return probability + (1 / 1354) * Math.pow(1354 / 1355, count - 1);
+      } else if (count < 20) {
+        return probability + (1 / 585) * Math.pow(584 / 585, count - 1);
+      } else if (count < 30) {
+        return probability + (1 / 373) * Math.pow(372 / 373, count - 1);
+      } else {
+        return probability + (1 / 273) * Math.pow(272 / 273, count - 1);
+      }
   }
 }
 

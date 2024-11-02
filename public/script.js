@@ -182,14 +182,32 @@ function calculateProb(method, probability, count) {
         (1 - Math.pow(1354 / 1355, 5)) * Math.pow(1354 / 1355, 5 * (count - 1))
       );
     case "SOS":
-      if (count < 10) {
+      if (count < 11) {
         return probability + (1 / 1354) * Math.pow(1354 / 1355, count - 1);
-      } else if (count < 20) {
-        return probability + (1 / 585) * Math.pow(584 / 585, count - 1);
-      } else if (count < 30) {
-        return probability + (1 / 373) * Math.pow(372 / 373, count - 1);
+      } else if (count < 21) {
+        return (
+          probability +
+          (1 / 585) *
+            Math.pow(1354 / 1355, 10) *
+            Math.pow(584 / 585, count - 11)
+        );
+      } else if (count < 31) {
+        return (
+          probability +
+          (1 / 373) *
+            Math.pow(372 / 373, count - 21) *
+            Math.pow(1354 / 1355, 10) *
+            Math.pow(584 / 585, 10)
+        );
       } else {
-        return probability + (1 / 273) * Math.pow(272 / 273, count - 1);
+        return (
+          probability +
+          (1 / 273) *
+            Math.pow(272 / 273, count - 31) *
+            Math.pow(372 / 373, 10) *
+            Math.pow(1354 / 1355, 10) *
+            Math.pow(584 / 585, 10)
+        );
       }
   }
 }
